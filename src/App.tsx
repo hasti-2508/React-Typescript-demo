@@ -1,25 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Greet from './components/props/Greet';
+import PersonList from './components/props/PersonList';
+import Status from './components/props/Status';
+import Heading from './components/props/Heading';
+import Headingtext from './components/props/Headingtext';
+import Button from './components/eventProp/Button';
+import Input from './components/eventProp/Input';
+const nameList = [
+  {
+    first: 'Bruce',
+    last: 'Wayne'
+  },
+  {
+    first: 'Clark',
+    last: 'Kent'
+  },
+  {
+    first: 'Princess',
+    last: 'Diana'
+  }
+]
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+    <Greet name={"Hasti"} message={10}/>
+    <PersonList nameList={nameList}/>
+    <Status status={"loading"}/>
+    <Heading>
+      <Headingtext >{"This one is coming with component inside component"}</Headingtext>
+    </Heading>
+    <Button handleClick={(event ,id ) => {
+      console.log(event,id)
+    }}/>
+    <Input value='' handleChange={(e) => console.log(e)} />
+    </>
+
   );
 }
 
